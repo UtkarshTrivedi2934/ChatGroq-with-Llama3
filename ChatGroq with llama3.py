@@ -15,7 +15,7 @@ import time
 
 st.title("Chatgroq With Llama3")
 
-llm = ChatGroq(groq_api_key='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',
+llm = ChatGroq(groq_api_key='your_api_key',
                model_name="Llama3-8b-8192")
 
 prompt = ChatPromptTemplate.from_template(
@@ -32,7 +32,7 @@ Questions: {input}
 def vector_embedding():
     # Initialize embeddings and documents if not already initialized
     if "vectors" not in st.session_state:
-        st.session_state.embeddings = OpenAIEmbeddings(openai_api_key = 'sk-proj-fxgXl0hJupHqBJYpuAgXT3BlbkFJENTqy3QrONVeIvp3SNKK')
+        st.session_state.embeddings = OpenAIEmbeddings(openai_api_key = 'your_api_key')
         st.session_state.loader = PyPDFDirectoryLoader("./us_census")  # Data Ingestion
         st.session_state.docs = st.session_state.loader.load()  # Document Loading
         st.session_state.text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)  # Chunk Creation
